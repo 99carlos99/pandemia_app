@@ -46,10 +46,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     fun viewDataGson(view: View){
+
         mMap.clear()
         for (pais in paisesGson){
             mMap.addMarker(
-                    MarkerOptions().position(LatLng(pais?.countryInfo.lat?:0.0, pais?.countryInfo.long?:0.0)).title("País: ${pais.nombre}").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)))
+                    MarkerOptions().position(LatLng(pais?.countryInfo.lat?:0.0, pais?.countryInfo.long?:0.0)).title("País: ${pais.nombre}").icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_covid)))
         }
     }
 
@@ -57,7 +58,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.clear()
         for (pais in data){
             mMap.addMarker(
-                    MarkerOptions().position(LatLng(pais.latitude, pais.longitude)).title("País: ${pais.nombre}").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)))
+                    MarkerOptions().position(LatLng(pais.latitude, pais.longitude)).title("País: ${pais.nombre}").icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_covid2)))
         }
     }
 
@@ -69,7 +70,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val topTests = dTests.dropLast(dTests.size - 10)
         for (pais in topTests){
             mMap.addMarker(
-                    MarkerOptions().position(LatLng(pais.latitude, pais.longitude)).title("No. de tests: ${pais.tests}").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+                    MarkerOptions().position(LatLng(pais.latitude, pais.longitude)).title("No. de tests: ${pais.tests}").icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_covid))
 
             )
         }
@@ -84,7 +85,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         for (pais in topTests){
             mMap.addMarker(
-                    MarkerOptions().position(LatLng(pais.latitude, pais.longitude)).title("No. de casos: ${pais.casos}").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))
+                    MarkerOptions().position(LatLng(pais.latitude, pais.longitude)).title("No. de casos: ${pais.casos}").icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_covid2))
             )
         }
     }
@@ -98,7 +99,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         for (pais in topDeaths){
             mMap.addMarker(
-                    MarkerOptions().position(LatLng(pais.latitude, pais.longitude)).title("No de muertes: ${pais.defunciones}").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                    MarkerOptions().position(LatLng(pais.latitude, pais.longitude)).title("No de muertes: ${pais.defunciones}").icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_deaths))
             )
         }
     }
